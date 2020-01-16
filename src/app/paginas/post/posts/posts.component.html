@@ -1,0 +1,33 @@
+<div class="col-md-12 text-center form-group">
+    <h2>Post list</h2>
+</div>
+<div class="col-md-12" *ngIf=!loading_posts>
+    <table class="table table-sm table-hover text-center table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Post</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of showPosts">
+                <td scope="row">{{post.id}}</td>
+                <td class="text-left">{{post.title}}</td>
+                <td class="pointer" [routerLink]="['/post',post.id]">Ver</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <a (click)="back(10)" class="pointer">❮</a>
+        <a (click)="show(10)" class="pointer">❯</a>
+    </div>
+</div>
+<div class="col-md-12" *ngIf="loading_posts">
+    <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+    </div>
+</div>

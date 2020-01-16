@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header text-center titulo">
+        Comentarios
+    </div>
+    <div class="list-group">
+        <div *ngIf="!cargando_comentarios">
+            <li *ngFor="let com of comentarios" class="list-group-item">
+                <p>Nombre: {{com.name}}</p>
+                <p>Comentario: {{com.body}}</p>
+                <a href = "mailto: {{com.email}}">Correo: {{com.email}}</a>
+            </li>
+            <div class="col-md-12 text-center emitir">
+                <button (click)="emitir()" class="btn btn-primary">Emitir</button>
+            </div>
+        </div>
+        <div class="sk-folding-cube" *ngIf="cargando_comentarios">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+</div>
